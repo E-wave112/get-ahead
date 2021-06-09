@@ -2,6 +2,9 @@
 # Dictionaries,associative arrays e.t.c work
 
 ##create a placeholder capacity for the hash table
+##testing module
+import unittest
+
 TOTAL_CAPACITY=100
 # create a linkedlist class as a bucket container
 class Node:
@@ -98,13 +101,18 @@ class HashTable:
         
         
 ##create testcases
-hashtest=HashTable()
-hashfun=hashtest.insert(100,5)
-hashfun_1=hashtest.insert('123',7)
-hashfun_3=hashtest.insert('entropy','randomness')
-print(hashfun)#(100,5)
-print(hashtest.find('123'))#7
-print(hashtest.remove('entropy'))#randomness
+class HashTestTables(unittest.TestCase):
+    def test_table(self):
+        hashtest=HashTable()
+        hashfun=hashtest.insert(100,5)
+        hashfun_1=hashtest.insert('123',7)
+        hashfun_3=hashtest.insert('entropy','randomness')
+        self.assertEqual(hashfun,(100,5))
+        self.assertEqual(hashtest.find('123'),7)
+        self.assertEqual(len(hashfun_3),2)
 
+    
+if __name__ == '__main__':
+    unittest.main()
 
 
